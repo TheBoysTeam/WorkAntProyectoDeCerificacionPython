@@ -322,7 +322,7 @@ h1, h2, p, a, span{
 		/******************************************** LEFT CONTAINER *****************************************/
 		.left-container {}
 			.menu-box {
-				height: 360px;
+				height: 320px;
 			}
 				.menu-box .titular {
 					background: #11a8ab;
@@ -715,10 +715,15 @@ h1, h2, p, a, span{
 						}
 		/************************************************** MIDDLE CONTAINER **********************************/
 		.middle-container {
-			margin: 0 25px;			
+			margin: 0 25px;
+			/*width: 100%;
+  			padding-right: 0.75rem;
+  			padding-left: 0.75rem;
+  			margin-right: auto;
+  			margin-left: auto;*/				
 		}
 			.profile {
-				height: 410px;
+				height: 337px;
 			}
 				.add-button .icon {
 					float: right;
@@ -740,7 +745,7 @@ h1, h2, p, a, span{
 				}
 				.profile-description {
 					width: 210px;
-					margin: 0 auto;
+					margin: auto;
 					text-align: center;
 				}
 				.profile-options {
