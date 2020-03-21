@@ -323,6 +323,11 @@ h1, h2, p, a, span{
 		.left-container {}
 			.menu-box {
 				height: 320px;
+				width: 180%;
+				padding-right: 0.75rem;
+  				padding-left: 0.75rem;
+  				margin-right: auto;
+  				margin-left: auto;
 			}
 				.menu-box .titular {
 					background: #11a8ab;
@@ -723,7 +728,12 @@ h1, h2, p, a, span{
   			margin-left: auto;*/				
 		}
 			.profile {
+				width: 100%;
 				height: 337px;
+				padding-right: 0.75rem;
+  				padding-left: 0.75rem;
+  				margin-right: auto;
+  				margin-left: auto;
 			}
 				.add-button .icon {
 					float: right;
