@@ -97,9 +97,10 @@ h1, h2, p, a, span{
 
 .input-container {
 	position: relative;
+	width: 100%;
 }
 	input[type=text]{
-		width: 260px;
+		width: 400px;
 		height: 50px;
 		margin-left: 20px;
 		margin-bottom: 20px;
@@ -965,7 +966,8 @@ h1, h2, p, a, span{
 						background: #0F9295;
 					}
 			.account {
-				height: 390px;
+				height: auto;
+				width: 100%;
 			}
 				.account .titular {
 					padding: 10px 0;
