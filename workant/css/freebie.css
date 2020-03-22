@@ -98,7 +98,7 @@ h1, h2, p, a, span{
 .input-container {
 	position: relative;
 	width: 100%;
-}
+}	
 	input[type=text]{
 		width: 400px;
 		height: 50px;
@@ -135,6 +135,23 @@ h1, h2, p, a, span{
 		.input-icon.password-icon {
 			left: 35px;
 		}
+
+/*.contenido {
+	position: relative;
+	width: 100%;
+}	
+	input[type=text]{
+		width: 500px;
+		height: 50px;
+		margin-top: 20px;
+		margin-left: 20px;
+		margin-bottom: 20px;
+		padding-left: 45px;
+		background: #50597b;
+		color: #fff;
+		border: solid 1px #1f253d;
+		border-radius: 5px;		
+	}*/
 
 .horizontal-list {
 	margin: 0;
@@ -373,6 +390,52 @@ h1, h2, p, a, span{
 					}
 					.menu-box-tab:hover .menu-box-number {
 						background: #e64c65;
+					}
+					
+			.account {
+				margin-right: auto;
+				height: auto;
+				width: 150%;
+			}
+				.account .titular {
+					padding: 10px 0;
+				}
+				.sign-in.button {
+					background: #e64c65;
+					margin: 10px auto;
+				}
+					.sign-in.button:hover {
+						background: #cc324b;
+					}
+				.account p { 
+					text-align: center;
+				}
+				.fb-sign-in {
+					margin-top: 28px;
+					display: block;
+					line-height: 50px;
+					background: #3468af;
+					border-bottom-left-radius: 5px;
+					border-bottom-right-radius: 5px;
+					-webkit-transition: background .3s;
+					transition: background .3s;
+				}
+					.fb-sign-in:hover {
+						background: #1a4e95;
+						text-decoration: none;
+					}
+				.fb-sign-in .icon {	
+					line-height: 20px;
+					font-size: 12px;
+					padding-right: 3px;
+				}
+					.fb-border {
+						display: inline-block;
+						width: 23px;
+						line-height: 20px;
+						border: 2px solid #fff;
+						border-radius: 100%;
+						margin-right: 10px;
 					}
 			.donut-chart-block {
 				height: 434px;
@@ -858,31 +921,6 @@ h1, h2, p, a, span{
 						.weather .next-days-temperature .icon {
 							padding-left: 10px;
 						}
-			.tweets {
-				height: 375px;
-			}
-				.tweets .titular {
-					background: #35aadc;
-				}
-					.tweets .titular .icon {
-						font-size: 18px;
-						padding-right: 20px;
-					}
-				.tweet.first {
-					height: 150px;
-					border-bottom: 1px solid #1f253d;
-				}
-					.tweet p:first-child {
-						margin: 0;
-						padding: 30px 30px 0;
-					}
-					.tweet p:last-child {
-						margin: 0;
-						padding: 15px 30px 0;
-					}
-					.tweet-link {
-						color: #4fc4f6;
-					}
 			.middle-container .social {
 				height: 205px;
 				background: #1f253d;
@@ -965,50 +1003,6 @@ h1, h2, p, a, span{
 					.subscribe.button:hover {
 						background: #0F9295;
 					}
-			.account {
-				height: auto;
-				width: 100%;
-			}
-				.account .titular {
-					padding: 10px 0;
-				}
-				.sign-in.button {
-					background: #e64c65;
-					margin: 10px auto;
-				}
-					.sign-in.button:hover {
-						background: #cc324b;
-					}
-				.account p { 
-					text-align: center;
-				}
-				.fb-sign-in {
-					margin-top: 28px;
-					display: block;
-					line-height: 50px;
-					background: #3468af;
-					border-bottom-left-radius: 5px;
-					border-bottom-right-radius: 5px;
-					-webkit-transition: background .3s;
-					transition: background .3s;
-				}
-					.fb-sign-in:hover {
-						background: #1a4e95;
-						text-decoration: none;
-					}
-				.fb-sign-in .icon {	
-					line-height: 20px;
-					font-size: 12px;
-					padding-right: 3px;
-				}
-					.fb-border {
-						display: inline-block;
-						width: 23px;
-						line-height: 20px;
-						border: 2px solid #fff;
-						border-radius: 100%;
-						margin-right: 10px;
-					}
 			.loading {
 				height: 200px;
 				padding-top: 35px;
@@ -1042,6 +1036,33 @@ h1, h2, p, a, span{
 						background: -ms-linear-gradient(left, #4fc4f6 43%,#50597b 43%); /* IE10+ */
 						background: linear-gradient(to right, #4fc4f6 43%,#50597b 43%); /* W3C */
 					}
+			.tweets {
+				margin-left: auto;
+				height: auto;
+				width: 150%;
+			}
+				.tweets .titular {
+					background: #35aadc;
+				}
+					.tweets .titular .icon {
+						font-size: 18px;
+						padding-right: 20px;
+					}
+				.tweet.first {
+					height: 150px;
+					border-bottom: 1px solid #1f253d;
+				}
+					.tweet p:first-child {
+						margin: 0;
+						padding: 30px 30px 0;
+					}
+					.tweet p:last-child {
+						margin: 0;
+						padding: 15px 30px 0;
+					}
+					.tweet-link {
+						color: #4fc4f6;
+					}		
 			.calendar-day {
 				height: 320px;
 				background: #3468af;
