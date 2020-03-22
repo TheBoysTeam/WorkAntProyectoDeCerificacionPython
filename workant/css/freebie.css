@@ -95,6 +95,23 @@ h1, h2, p, a, span{
 		color: #9099b7;
 	}
 
+.contenido {
+	position: relative;
+	width: 100%;
+}	
+		input[type=text1]{
+			width: 100px;
+			height: auto;
+			margin-top: 30px;
+			margin-left: 20px;
+			margin-bottom: 20px;
+			padding-left: 45px;
+			background: #50597b;
+			color: #fff;
+			border: solid 1px #1f253d;
+			border-r0adius: 5px;		
+		}
+
 .input-container {
 	position: relative;
 	width: 100%;
@@ -135,23 +152,6 @@ h1, h2, p, a, span{
 		.input-icon.password-icon {
 			left: 35px;
 		}
-
-/*.contenido {
-	position: relative;
-	width: 100%;
-}	
-	input[type=text]{
-		width: 500px;
-		height: 50px;
-		margin-top: 20px;
-		margin-left: 20px;
-		margin-bottom: 20px;
-		padding-left: 45px;
-		background: #50597b;
-		color: #fff;
-		border: solid 1px #1f253d;
-		border-radius: 5px;		
-	}*/
 
 .horizontal-list {
 	margin: 0;
@@ -395,7 +395,7 @@ h1, h2, p, a, span{
 			.account {
 				margin-right: auto;
 				height: auto;
-				width: 150%;
+				width: auto;
 			}
 				.account .titular {
 					padding: 10px 0;
@@ -1037,9 +1037,9 @@ h1, h2, p, a, span{
 						background: linear-gradient(to right, #4fc4f6 43%,#50597b 43%); /* W3C */
 					}
 			.tweets {
-				margin-left: auto;
-				height: auto;
-				width: 150%;
+				margin-left: 300px;
+				height: 1000px;
+				width: 300%;
 			}
 				.tweets .titular {
 					background: #35aadc;
