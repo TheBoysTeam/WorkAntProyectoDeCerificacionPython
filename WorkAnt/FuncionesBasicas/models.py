@@ -11,13 +11,22 @@ class Empleados(models.Model):
     genero=models.CharField(max_length = 60)
     email=models.EmailField()
 
+    def returnId(self):
+        return self.id
+
 class EmailRefetenceiaEmpleados(models.Model):
     llaveForanea=models.ForeignKey(Empleados,on_delete=models.CASCADE,)
     email=models.EmailField()
 
+    def returnId(self):
+        return self.id
+
 class TelefonosEmpleados(models.Model):
     llaveForanea=models.ForeignKey(Empleados,on_delete=models.CASCADE,)
     telf=models.CharField(max_length = 8)
+
+    def returnId(self):
+        return self.id
 
 #-----------------------------------------------#
 

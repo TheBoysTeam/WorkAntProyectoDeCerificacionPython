@@ -14,3 +14,4 @@ admin.site.register(TiempoDisponible)
 admin.site.register(ZonaTrabajo)
 admin.site.register(historialConsulta)
 admin.site.register(historialCreacion)
+
