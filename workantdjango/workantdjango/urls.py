@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from workantdjango.views import login, registerempresa
+from . import views
+from workantdjango.views import login, registerempleado, registerempresa, recordsempleado, homeempleador, descripcionempleado, e404, forgotpassword
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/',login),
-    path('registerempresa/', registerempresa),
+    path('login', login),
+    path('registerempleado', views.registerempleado),
+    path('registerempresa', views.registerempresa),
+    path('recordsempleado', views.recordsempleado),
+    path('homeempleador', views.homeempleador),
+ 	path('descripcionempleado/', views.descripcionempleado),
+    path('forgotpassword', views.forgotpassword),
+    path('e404', views.e404),   
 ]

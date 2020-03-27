@@ -72,7 +72,7 @@
                 <div class="form-group">
                   <input type="email" class="form-control form-control-user" id="EmailEmp" placeholder="Direccion de email de la empresa">
                 </div>
-                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                <a href="/homeempleador" class="btn btn-primary btn-user btn-block">
                   Registrar
                 </a>
                 <!--<hr>
@@ -85,10 +85,10 @@
               </form>
               <hr>
               <div class="text-center">
-                <a class="small" href="forgot-password.html">Olvidaste tu contraseña?</a>
+                <a class="small" href="/forgotpassword">Olvidaste tu contraseña?</a>
               </div>
               <div class="text-center">
-                <a class="small" href="login.html">Ya tienes una cuenta? Inicia sesion!</a>
+                <a class="small" href="/login">Ya tienes una cuenta? Inicia sesion!</a>
               </div>
             </div>
           </div>
@@ -99,14 +99,14 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
 
 </body>
 

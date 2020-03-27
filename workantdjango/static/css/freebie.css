@@ -95,13 +95,13 @@ h1, h2, p, a, span{
 		color: #9099b7;
 	}
 
-.contenido {
+/*.contenido {
 	position: relative;
 	width: 100%;
 }	
 		input[type=text1]{
-			width: 100px;
-			height: auto;
+			width: 360px;
+			height: 200px;
 			margin-top: 30px;
 			margin-left: 20px;
 			margin-bottom: 20px;
@@ -110,8 +110,18 @@ h1, h2, p, a, span{
 			color: #fff;
 			border: solid 1px #1f253d;
 			border-r0adius: 5px;		
-		}
-
+		}*/
+.textarea1{
+		width: 370px;
+		height: 200px;
+		margin-right: 50px;
+		margin-left: 10px;
+		margin-bottom: 20px;
+		background: #50597b;
+		color: #fff;
+		border: solid 1px #1f253d;
+		border-radius: 5px;		
+	}
 .input-container {
 	position: relative;
 	width: 100%;
@@ -338,7 +348,11 @@ h1, h2, p, a, span{
 			border-radius: 5px;
 		}
 		/******************************************** LEFT CONTAINER *****************************************/
-		.left-container {}
+		.left-container {
+			float: left;
+			width: auto;
+			height: auto;
+		}
 			.menu-box {
 				height: 320px;
 				width: 180%;
@@ -393,7 +407,9 @@ h1, h2, p, a, span{
 					}
 					
 			.account {
+				margin-top: 30px;
 				margin-right: auto;
+				margin-left: auto;
 				height: auto;
 				width: auto;
 			}
@@ -784,12 +800,10 @@ h1, h2, p, a, span{
 						}
 		/************************************************** MIDDLE CONTAINER **********************************/
 		.middle-container {
-			margin: 0 25px;
-			/*width: 100%;
-  			padding-right: 0.75rem;
-  			padding-left: 0.75rem;
-  			margin-right: auto;
-  			margin-left: auto;*/				
+			margin: auto;
+			margin-top: 20px;
+			width: 960px;
+			height: 90px;				
 		}
 			.profile {
 				width: 100%;
@@ -989,7 +1003,11 @@ h1, h2, p, a, span{
 						background: #cc324b;						
 					}
 		/********************************************* RIGHT CONTAINER ****************************************/
-		.right-container {}
+		.right-container {
+			float: right;
+			width: auto;
+			height: auto;
+		}
 			.join-newsletter {
 				height: 230px;
 			}
@@ -1037,9 +1055,11 @@ h1, h2, p, a, span{
 						background: linear-gradient(to right, #4fc4f6 43%,#50597b 43%); /* W3C */
 					}
 			.tweets {
-				margin-left: 300px;
-				height: 1000px;
-				width: 300%;
+				height: 400px;
+				width: 400px;
+				margin-right: 100px;
+				margin-left: 100px;
+				margin-top: 30px;
 			}
 				.tweets .titular {
 					background: #35aadc;

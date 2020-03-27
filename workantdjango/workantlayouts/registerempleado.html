@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,14 +10,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Registro de empleado</title>
+  <title>Estas buscando un empleao</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="{%static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
 
 </head>
 
@@ -61,13 +62,14 @@
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="tel" class="form-control form-control-user" id="Celular" placeholder="Numero de celular" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
                   </div>
-                  <!--<div class="col-sm-6 mb-3 mb-sm-0"> class = "form-control form-control-user"-->
-                    <select id="Genero" >
+                  <div class="form-control-user">
+                    <select name="Genero" required>
+                      <option value="" disabled selected hidden>Genero</option>
                       <option value="masculino" class="form-control form-control-user">Masculino</option>
                       <option value="femenino" class="form-control form-control-user">Femenino</option>
                       <option value="otro" class="form-control form-control-user">No quiero decirlo</option>
                     </select>
-                  <!--</div>-->  
+                  </div>  
                 </div>
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')">
@@ -76,7 +78,7 @@
                 </div>
                   <!--<input class="form-control form-control-user" id="Genero" placeholder="Genero" for="Genero">-->
                   <!--<label for="Genero" class = "form-control form-control-user">Genero </label>-->
-                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                <a href="/recordsempleado" class="btn btn-primary btn-user btn-block">
                   Registrar
                 </a>
                 <!--<hr>
@@ -89,10 +91,10 @@
               </form>
               <hr>
               <div class="text-center">
-                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                <a class="small" href="/forgot_password">Olvidaste tu contraseña?</a>
               </div>
               <div class="text-center">
-                <a class="small" href="login.html">Already have an account? Login!</a>
+                <a class="small" href="/login">Ya tienes una cuenta? Inicia Sesion</a>
               </div>
             </div>
           </div>
@@ -103,14 +105,14 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
 
 </body>
 
