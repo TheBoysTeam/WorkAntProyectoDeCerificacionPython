@@ -18,3 +18,5 @@ def forgotpassword(request):
 	return render(request,"forgotpassword.html",{'llaveALaVerga5':"ValorALaVerga5"})
 def e404(request):
 	return render(request,"404.html",{'llaveALaVerga6':"ValorALaVerga6"})
+def homeempleado(request):
+	return render(request,"homeempleado.html",{'llaveALaVerga7':"ValorALaVerga7"})

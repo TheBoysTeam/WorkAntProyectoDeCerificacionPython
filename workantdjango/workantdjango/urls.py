@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
-from workantdjango.views import login, registerempleado, registerempresa, recordsempleado, homeempleador, descripcionempleado, e404, forgotpassword
+from workantdjango.views import login, registerempleado, registerempresa, recordsempleado, homeempleador, homeempleado, descripcionempleado, e404, forgotpassword
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +26,7 @@ urlpatterns = [
     path('recordsempleado', views.recordsempleado),
     path('homeempleador', views.homeempleador),
  	path('descripcionempleado/', views.descripcionempleado),
+    path('homeempleado', views.homeempleado),
     path('forgotpassword', views.forgotpassword),
     path('e404', views.e404),   
 ]
