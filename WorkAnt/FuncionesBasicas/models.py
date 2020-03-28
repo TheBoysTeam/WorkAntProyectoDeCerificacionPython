@@ -12,22 +12,15 @@ class Empleados(models.Model):
     genero=models.CharField(max_length = 60)
     email=models.EmailField()
 
-    def returnId(self):
-        return self.id
 
 class EmailRefetenceiaEmpleados(models.Model):
-    llaveForanea=models.ForeignKey(Empleados,on_delete=models.CASCADE,)
+    llaveForanea=models.ForeignKey(Empleados,on_delete=models.CASCADE,default=0)
     email=models.EmailField()
 
-    def returnId(self):
-        return self.id
 
 class TelefonosEmpleados(models.Model):
-    llaveForanea=models.ForeignKey(Empleados,on_delete=models.CASCADE,)
+    llaveForanea=models.ForeignKey(Empleados,on_delete=models.CASCADE,default=0)
     telf=models.CharField(max_length = 8)
-
-    def returnId(self):
-        return self.id
 
 #-----------------------------------------------#
 
@@ -39,11 +32,11 @@ class Empleadores(models.Model):
     email = models.EmailField()
 
 class DireccionEmpleadores(models.Model):
-    llaveForanea=models.ForeignKey(Empleadores,on_delete=models.CASCADE,)
+    llaveForanea=models.ForeignKey(Empleadores,on_delete=models.CASCADE,default=0)
     direccion=models.CharField(max_length = 200)
 
 class TelefonosEmpleadores(models.Model):
-    llaveForanea=models.ForeignKey(Empleadores,on_delete=models.CASCADE,)
+    llaveForanea=models.ForeignKey(Empleadores,on_delete=models.CASCADE,default=0)
     telf=models.CharField(max_length = 8)
 
 #---------------------------------------------#
@@ -51,12 +44,12 @@ class TelefonosEmpleadores(models.Model):
 #-----------Tabla Tarjeta de trabajo-----------------#
 
 class TarjetaTrabajo(models.Model):
-    llaveForanea= models.ForeignKey(Empleados ,on_delete=models.CASCADE,)
-    tiempoDisponoble=models.IntegerField()
+    llaveForanea= models.ForeignKey(Empleados ,on_delete=models.CASCADE, default=0)
+    tiempoDisponible=models.IntegerField()
     zona= models.CharField(max_length = 200)
 
 class TagBusqueda(models.Model):
-    llaveForanea=models.ForeignKey(TarjetaTrabajo, on_delete=models.CASCADE,)
+    llaveForanea=models.ForeignKey(TarjetaTrabajo, on_delete=models.CASCADE,default=0)
     tag=models.CharField(max_length=30)
 
 #-----------------------------------------------------_#
@@ -64,12 +57,12 @@ class TagBusqueda(models.Model):
 #--------------Relacion------------------------------#
 
 class historialCreacion(models.Model):
-    llaveForaneaTarjeta=models.ForeignKey(TarjetaTrabajo  , on_delete=models.CASCADE,)
+    llaveForaneaTarjeta=models.ForeignKey(TarjetaTrabajo  , on_delete=models.CASCADE, default=0)
     fechaCreacion=models.DateTimeField(default=date.today)
-    llaveForaneaEmpleados=models.ForeignKey(Empleados  , on_delete=models.CASCADE,)
+    llaveForaneaEmpleados=models.ForeignKey(Empleados  , on_delete=models.CASCADE,default=0)
 
 class historialConsulta(models.Model):
-    llaveForaneaTarjeta=models.ForeignKey(TarjetaTrabajo  , on_delete=models.CASCADE,)
+    llaveForaneaTarjeta=models.ForeignKey(TarjetaTrabajo  , on_delete=models.CASCADE,default=0)
     fechaConsulta=models.DateTimeField(default=date.today)
-    llaveForaneaEmpleadores=models.ForeignKey(Empleadores  ,on_delete=models.CASCADE,)
+    llaveForaneaEmpleadores=models.ForeignKey(Empleadores  ,on_delete=models.CASCADE,default=0)
  #===================================================#

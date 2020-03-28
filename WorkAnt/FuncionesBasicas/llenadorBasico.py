@@ -37,17 +37,13 @@ class llenadorTablas(self):
             ttag=TagBusqueda(llaveForanea=tarjeta,tag=ptagBusqueda[i])
             ttag.save()
 
-    def llenadorTablasHistorialCreacion(self, tarjeta_id, empleado_id):
-        tarjeta=TarjetaTrabajo.objects.get(id=tarjeta_id)
-        empleado=Empleados.objects.get(id=empleado_id)
+        
     def llenadorTablasHistorialCreacion(self, tarjeta_id, empleado_id):
         tarjeta=TarjetaTrabajo.objects.get(id=tarjeta_id)
         empleado=Empleados.objects.get(id=empleado_id)
 
         hcreacion=historialCreacion(llaveForaneaTarjeta=tarjeta, llaveForaneaEmpleados=empleado)
         hcreacion.save()
-        hcreacion=historialCreacion(llaveForaneaTarjeta=tarjeta, llaveForaneaEmpleados=empleado)
-        hcreacion.save() 
     
     def llenadorTablasHistorialConsulta(self, tarjeta_id, empleador_id):
         tarjeta=TarjetaTrabajo.objects.get(id=tarjeta_id)
