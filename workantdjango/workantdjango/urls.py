@@ -20,7 +20,7 @@ from workantdjango.views import login, registerempleado, registerempresa, record
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login', login),
+    path('login', views.login),
     path('registerempleado', views.registerempleado),
     path('registerempresa', views.registerempresa),
     path('recordsempleado', views.recordsempleado),
