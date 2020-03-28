@@ -62,20 +62,12 @@
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="tel" class="form-control form-control-user" id="Celular" placeholder="Numero de celular" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
                   </div>
-                  <nav class="navbar navbar-expand navbar-light bg-light mb-4">
-                    <ul class="navbar-nav ml-auto">
-                      <li class="nav-item dropdown">
-                        <select class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genero
-                            <div class="dropdown-menu dropdown-menu-right animated--grow-in" aria-labelledby="navbarDropdown">
-                                <option value="" disabled selected hidden>Genero</option>
-                                <option value="masculino" class="dropdown-item">Masculino</option>
-                                <option value="femenino" class="dropdown-item">Femenino</option>
-                                <option value="no" class="dropdown-item">Prefiero no decirlo</option>
-                            </div>
-                        </select>    
-                      </li>
-                    </ul>
-                  </nav>  
+                  <select class="nav-link dropdown-toggle navbar navbar-expand navbar-light bg-light mb-3 navbar-nav ml-auto nav-item dropdown dropdown-menu dropdown-menu-right animated--grow-in" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-labelledby="navbarDropdown">Genero
+                        <option value="" disabled selected hidden>Genero</option>
+                        <option value="masculino" class="dropdown-item">Masculino</option>
+                        <option value="femenino" class="dropdown-item">Femenino</option>
+                        <option value="no" class="dropdown-item">Prefiero no decirlo</option>
+                  </select>      
                 </div>
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')">
