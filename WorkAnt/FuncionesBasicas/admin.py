@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from FuncionesBasicas.models import DireccionEmpleadores, EmailRefetenceiaEmpleados , Empleadores , Empleados , TagBusqueda, TarjetaTrabajo , TelefonosEmpleadores , TelefonosEmpleados , historialConsulta , historialCreacion 
+from FuncionesBasicas.models import DireccionEmpleadores, EmailRefetenceiaEmpleados, Empleadores, Empleados, TagBusqueda, TarjetaTrabajo, TelefonosEmpleadores, TelefonosEmpleados, historialConsulta, historialCreacion
 
 #--------------------------------------------------------------------------------------#
 
@@ -38,3 +38,4 @@ admin.site.register(Empleadores,EmpleadoresAdmin)
 admin.site.register(TarjetaTrabajo,TarjetasAdmin)
 admin.site.register(historialCreacion,HistorialCreacionAdmin)
 admin.site.register(historialConsulta,HistorialConsultaAdmin)
+

@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nombre', models.CharField(max_length=80)),
+
                 ('codigo', models.CharField(max_length=80)),
                 ('email', models.EmailField(max_length=254)),
             ],
@@ -25,7 +26,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Empleados',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('nombre', models.CharField(max_length=80)),
                 ('codigo', models.CharField(max_length=120)),
                 ('fechaNac', models.DateField()),
@@ -34,70 +36,87 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+
             name='TelefonosEmpleados',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('telf', models.CharField(max_length=8)),
                 ('llaveForanea', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='FuncionesBasicas.Empleados')),
+
             ],
         ),
         migrations.CreateModel(
             name='TelefonosEmpleadores',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('telf', models.CharField(max_length=8)),
+
                 ('llaveForanea', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='FuncionesBasicas.Empleadores')),
+
             ],
         ),
         migrations.CreateModel(
             name='TarjetaTrabajo',
             fields=[
+
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('tiempoDisponible', models.IntegerField()),
                 ('zona', models.CharField(max_length=200)),
                 ('llaveForanea', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='FuncionesBasicas.Empleados')),
+
             ],
         ),
         migrations.CreateModel(
             name='TagBusqueda',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('tag', models.CharField(max_length=30)),
-                ('llaveForanea', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='FuncionesBasicas.TarjetaTrabajo')),
+                ('llaveForanea', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='FuncionesBasicas.TarjetaTrabajo')),
             ],
         ),
         migrations.CreateModel(
             name='historialCreacion',
             fields=[
+
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('fechaCreacion', models.DateTimeField(default=datetime.date.today)),
                 ('llaveForaneaEmpleados', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='FuncionesBasicas.Empleados')),
                 ('llaveForaneaTarjeta', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='FuncionesBasicas.TarjetaTrabajo')),
+
             ],
         ),
         migrations.CreateModel(
             name='historialConsulta',
             fields=[
+
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('fechaConsulta', models.DateTimeField(default=datetime.date.today)),
                 ('llaveForaneaEmpleadores', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='FuncionesBasicas.Empleadores')),
                 ('llaveForaneaTarjeta', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='FuncionesBasicas.TarjetaTrabajo')),
+
             ],
         ),
         migrations.CreateModel(
             name='EmailRefetenceiaEmpleados',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('email', models.EmailField(max_length=254)),
-                ('llaveForanea', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='FuncionesBasicas.Empleados')),
+                ('llaveForanea', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='FuncionesBasicas.Empleados')),
             ],
         ),
         migrations.CreateModel(
             name='DireccionEmpleadores',
             fields=[
+
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('direccion', models.CharField(max_length=200)),
                 ('llaveForanea', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='FuncionesBasicas.Empleadores')),
+
             ],
         ),
     ]
