@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 #from . import views
 from FuncionesBasicas import views
+#from FuncionesBasicas.views import login, registerempleado, registerempresa, recordsempleado, homeempleador, homeempleado, descripcionempleado, e404, forgotpassword,
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
