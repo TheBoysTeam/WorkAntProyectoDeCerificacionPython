@@ -35,7 +35,7 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Crea una cuenta para tu empresa o Como empleador!</h1>
               </div>
-              <form class="user">
+              <form class="user" action="/recordempleado.html" method="post">
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="Username" placeholder="Usuario" required>
                 </div>
@@ -72,9 +72,7 @@
                 <div class="form-group">
                   <input type="email" class="form-control form-control-user" id="EmailEmp" placeholder="Direccion de email de la empresa">
                 </div>
-                <form action="/homeempleado.html" method="post">
-                  <input type="submit" id="enviarEmpresa" value="Login" class="btn btn-primary btn-user btn-block">
-                </form>
+                <input type="submit" id="enviarEmpresa" value="Login" class="btn btn-primary btn-user btn-block">
                 <!--<hr>
                 <a href="index.html" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Register with Google
