@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 #from . import views
-from FuncionesBasicas  import views
+from FuncionesBasicas import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,8 +25,8 @@ urlpatterns = [
     path('registerempresa/', views.registerempresa),
     path('recordsempleado/', views.recordsempleado),
     path('homeempleador/', views.homeempleador),
- 	path('descripcionempleado/', views.descripcionempleado),
+    path('descripcionempleado/', views.descripcionempleado),
     path('homeempleado/', views.homeempleado),
     path('forgotpassword/', views.forgotpassword),
-    path('e404/', views.e404),   
+    path('e404/', views.e404),
 ]

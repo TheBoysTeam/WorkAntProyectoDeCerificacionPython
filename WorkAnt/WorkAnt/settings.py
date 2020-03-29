@@ -55,7 +55,7 @@ ROOT_URLCONF = 'WorkAnt.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["/home/camilo/djangolab/ProyectoDeCerificacion/WorkAnt/workantlayouts"],
+        'DIRS': ["/home/jurgen/workant/WorkAnt/workantlayouts"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,4 +120,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS=(os.path.join(BASE_DIR, "static"),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
