@@ -54,7 +54,7 @@ class Records:
 		self.descripcion  = descripcion
 
 def recordsempleado(request):
-	re = Records("","","","","")
+	#re = Records("","","","","")
     return render(request, "recordsempleado.html", {'tiempo': re.tiempo, 'zona': re.zona, 'exp': re.exp, 'anterior': re.anterior, 'descripcion': re.descripcion})
 
 class homeEmpleador(Records):
@@ -62,7 +62,7 @@ class homeEmpleador(Records):
 		Records.__init__(self,tiempo,zona,exp,anterior,descripcion)
 
 def homeempleador(request):
-    #he=homeEmpleador("","","","","")
+    he=homeEmpleador("","","","","")
     return render(request, "homeempleador.html", {'tiempo': tiempo,'nombre':nombre, 'apellido':apellido, 'zona':zona,'exp':exp,'anterior':anterior,'descripcion':descripcion})
 
 class descpricionEmpleado(Records):
@@ -90,5 +90,5 @@ class homeEMpleado(Empleado):
 		Empleado.__init__(self,tiempo,zona,exp,anterior,descripcion)
 
 def homeempleado(request):
-	#hE = homeEMpleado("","","","","")
+	hE = homeEMpleado("","","","","")
     return render(request, "homeempleado.html", {'tiempo': tiempo,'nombre':nombre, 'apellido':apellido, 'zona':zona,'exp':exp,'anterior':anterior,'descripcion':descripcion})
