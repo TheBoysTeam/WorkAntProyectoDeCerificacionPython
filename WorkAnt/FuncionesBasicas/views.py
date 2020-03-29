@@ -44,9 +44,9 @@ def registerempresa(request):
     em=Empresa("","","","","","","","")
     return render(request, "registerempresa.html", {'usuarioE': em.usuarioE, 'contraseñaE': em.contraseñaE,'contraseñaE2':em.contraseñaE2,'emailE':em.emailE, 'nombreEmpresa':em.nombreEmpresa, 'celularE':em.celularE,'telefono':em.telefono,'emailDeLaEmpresa':em.emailDeLaEmpresa})
 
-class Records(Empleado):
+class Records:
 	def __init__(self,tiempo,zona,exp,anterior,descripcion):
-		Empleado.__init__(self,nombre,apellido)
+		#Empleado.__init__(self,nombre,apellido)
 		self.tiempo = tiempo
 		self.zona  = zona
 		self.exp  = exp
@@ -54,7 +54,7 @@ class Records(Empleado):
 		self.descripcion  = descripcion
 
 def recordsempleado(request):
-	#re = Records("","","","","")
+	re = Records("","","","","")
     return render(request, "recordsempleado.html", {'tiempo': re.tiempo, 'zona': re.zona, 'exp': re.exp, 'anterior': re.anterior, 'descripcion': re.descripcion})
 
 class homeEmpleador(Records):
