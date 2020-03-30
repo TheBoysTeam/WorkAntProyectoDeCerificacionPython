@@ -18,6 +18,9 @@
 
   <!-- Custom styles for this template-->
   <link href="{%static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+  <link href="{%static 'css/gijgo.min.css' %}" rel="stylesheet">
+  <link href="{%static 'date-time-phone/jquery-ui.css' %}" rel="stylesheet">
+  <link href="{%static 'date-time-phone/jquery-ui-timepicker-addon.css' %}" rel="stylesheet">  
 
 </head>
 
@@ -35,7 +38,7 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Crea una cuenta como empleado!</h1>
               </div>
-              <form class="user" action="/recordempleado.html" method="POST">
+              <form class="user" action="/recordsempleado.html" method="POST">
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="Username" placeholder="Usuario" required>
                 </div>
@@ -72,11 +75,18 @@
                     </select>
                   </div>  
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                   <input type="text" class="form-control form-control-user" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')" required>
                   <!--<label for="Nacimiento">Fecha de nacimiento</label>
                   <input type="date" class="form-control form-control-user" id="Nacimiento" placeholder="Fecha de nacimiento">-->
+                <!--</div>-->
+                <div class="form-group">
+                  <input id="datepicker" class="form-control form-control-user" value="Fecha de nacimiento"/>
                 </div>
+                <!--<div class="form-group">
+                  <input type="text" name="birth_date" value="Fecha de nacimiento" class="form-control form-control-user dateinput form-control hasDatepicker" id="nacimiento" autocomplete="off">
+                  {{ id_birth_date }}
+                </div>-->
                   <!--<input class="form-control form-control-user" id="Genero" placeholder="Genero" for="Genero">-->
                   <!--<label for="Genero" class = "form-control form-control-user">Genero </label>-->
                 <input type="submit" id="enviarEmpleado" value="Login" class="btn btn-primary btn-user btn-block">
@@ -103,6 +113,8 @@
 
   </div>
 
+ 
+
   <!-- Bootstrap core JavaScript-->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -112,6 +124,18 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+  <script src="{% static 'js/gijgo.min.js' %}"></script>
+  <script type="text/javascript">
+    $('#datepicker').datepicker({ uiLibrary: 'bootstrap4', iconsLibrary: 'fontawesome' });
+  </script>
+
+  <script src= "{% static 'date-time-phone/jquery-ui.js' %}"></script>
+  <script src= "{% static 'date-time-phone/jquery-ui-timepicker-addon.js' %}"></script>
+  <script>
+    $(function(){
+    $( "#id_birth_date" ).datepicker({dateFormat:"yy-mm-dd"}).attr("autocomplete", "off");
+  });
+  </script>
 
 </body>
 

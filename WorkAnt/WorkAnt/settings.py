@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'FuncionesBasicas',
+    'django_static_jquery_ui',
 ]
 
 MIDDLEWARE = [
