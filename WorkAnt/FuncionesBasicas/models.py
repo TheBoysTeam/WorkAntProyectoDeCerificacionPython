@@ -1,7 +1,6 @@
 from django.db import models
 from datetime import date
 
-# Create your models here.
 
 #--------------Tabla Empleados-----------------#
 
@@ -37,7 +36,9 @@ class Empleadores(models.Model):
     nombre = models.CharField(max_length=80)
     codigo = models.CharField(max_length=80)
     email = models.EmailField()
-
+    nombreEmpresa=models.CharField(max_length=80)
+    celular=models.CharField(max_length=8)
+    emailEmpresa= models.CharField(max_length=80)
 
 class DireccionEmpleadores(models.Model):
     llaveForanea=models.ForeignKey(Empleadores,on_delete=models.CASCADE,default=0)

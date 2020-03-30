@@ -1,94 +1,71 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
+from FuncionesBasicas.models import Empleados, Empleadores
+from FuncionesBasicas.llenadorBasico import llenadorTablas
+import datetime
 
-class Persona:
-	
-	def __init__(self,usuario,contraseña):
-		self.usuario = usuario
-		self.contraseña = contraseña
 
 def login(request):
-    p1 = Persona("","")
-    return render(request, "login.html", {'usuario': p1.usuario, 'contraseña': p1.contraseña})
+    if request.POST.get("usuario", False) and  request.POST.get("contrasena", False):
+        if Empleados.objects.filter(nombre=request.POST["usuario"]).filter(codigo=request.POST["contrasena"]):
+            return render(request, "homeempleado.html", {'tiempo': "tiempo",'nombre':"nombre", 'apellido':"apellido", 'zona':"zona",'exp':"exp",'anterior':"anterior",'descripcion':"descripcion"})            
+        elif Empleadores.objects.filter(nombre=request.POST["usuario"]).filter(codigo=request.POST["contrasena"]):
+            return render(request, "homeempleador.html", {'tiempo':" he.tiempo",'nombre':"he.nombre", 'apellido':"he.apellido", 'zona':"he.zona",'exp':"he.exp",'anterior':"he.anterior",'descripcion':"he.descripcion"})
+    return render(request, "login.html", {'usuario': "p1.usuario", 'contraseña': "p1.contraseña"})
 
-class Empleado:
-	
-	def __init__(self,nombre,apellido,contraseña,contraseña2,email,celular,genero,fecha,usuario):
-		self.nombre = nombre
-		self.apellido = apellido
-		self.contraseña = contraseña
-		self.contraseña2 = contraseña2
-		self.email = email
-		self.celular = celular
-		self.genero = genero
-		self.fecha = fecha
-		self.usuario = usuario
-
+#------------------------------------------
 def registerempleado(request):
-	e1 = Empleado("","","","","","","","","")
-	return render(request, "registerempleado.html", {'nombreEmpleado': e1.nombre, 'apellidoEmpleado': e1.apellido, 'contraseña':e1.contraseña,'contraseña2':e1.contraseña2,'email':e1.email,'celular':e1.celular,'genero':e1.genero,'fecha':e1.fecha,'usuario':e1.usuario})
+    mensaje=""
+    bol= (request.POST.get("Username",False) and request.POST.get("Password",False)) and (request.POST.get("RepeatPassword",False) and request.POST.get("Email",False)) and (request.POST.get("NobreDeLaEmpresa",False) and request.POST.get("Celular",False)) and request.POST.get("Genero",False) 
+    if bol : 
+        if ( request.POST.get("Password",False) == request.POST.get("RepeatPassword",False) ):
+            llenador=llenadorTablas
+            fecha=datetime.datetime.strptime(request.POST["FechaNac"], "%d%m%Y")
+            llenador.llenadorTablasUsuario(request.POST["Username"], request.POST["Password"], fecha, request.POST["Genero"], request.POST["Email"])
+            
+        else:
+            mensaje="Debes repetir el password"
+    return render(request, "registerempleado.html", {'mensajePasswordInvalido':mensaje})
 
-class Empresa:
-	def __init__(self,usuarioE,contraseñaE,contraseñaE2,emailE,nombreEmpresa,celularE,telefono,emailDeLaEmpresa):
-		self.usuarioE = usuarioE
-		self.contraseñaE = contraseñaE
-		self.contraseñaE2 = contraseñaE2
-		self.emailE = emailE
-		self.nombreEmpresa = nombreEmpresa
-		self.celularE = celularE
-		self.telefono = telefono
-		self.emailDeLaEmpresa = emailDeLaEmpresa
-
+#-----------------------------------------
 def registerempresa(request):
-    em=Empresa("","","","","","","","")
-    return render(request, "registerempresa.html", {'usuarioE': em.usuarioE, 'contraseñaE': em.contraseñaE,'contraseñaE2':em.contraseñaE2,'emailE':em.emailE, 'nombreEmpresa':em.nombreEmpresa, 'celularE':em.celularE,'telefono':em.telefono,'emailDeLaEmpresa':em.emailDeLaEmpresa})
-
-class Records(Empleado):
-	def __init__(self,tiempo,zona,exp,anterior,descripcion):
-		Empleado.__init__(self,nombre,apellido)
-		self.tiempo = tiempo
-		self.zona  = zona
-		self.exp  = exp
-		self.anterior = anterior
-		self.descripcion  = descripcion
+    mensaje=""
+    bol=request.POST.get("Username",False) and request.POST.get("Password",False) and request.POST.get("RepeatPassword",False) and request.POST.get("Email",False) and request.POST.get("NobreDeLaEmpresa",False) and request.POST.get("Celular",False) and request.POST.get("Telefono",False) and request.POST.get("EmailEmp",False)
+    if bol:
+        if ( request.POST.get("Password",False) == request.POST.get("RepeatPassword",False) ):
+            llenador=llenadorTablas
+            ob=llenador.llenadorTablasEmpleadores(request.POST["Username"], request.POST["Password"], request.POST["Email"], request.POST["NobreDeLaEmpresa"], request.POST["Celular"], request.POST["EmailEmp"])
+            llenador.llenadorTablasEmpleadores(ob,[request.POST["Telefono"]])
+        else:
+            mensaje="Debes repetir el password"
+    return render(request, "registerempresa.html", {'mensajePasswordInvalido':mensaje})
 
 def recordsempleado(request):
-	#re = Records("","","","","")
-    return render(request, "recordsempleado.html", {'tiempo': re.tiempo, 'zona': re.zona, 'exp': re.exp, 'anterior': re.anterior, 'descripcion': re.descripcion})
+    
+    return render(request, "recordsempleado.html", {'tiempo': "re.tiempo", 'zona': "re.zona", 'exp': "re.exp", 'anterior': "re.anterior", 'descripcion': "re.descripcion"})
 
-class homeEmpleador(Records):
-	def __init__(self):
-		Records.__init__(self,tiempo,zona,exp,anterior,descripcion)
 
 def homeempleador(request):
-    he=homeEmpleador("","","","","")
-    return render(request, "homeempleador.html", {'tiempo': tiempo,'nombre':nombre, 'apellido':apellido, 'zona':zona,'exp':exp,'anterior':anterior,'descripcion':descripcion})
+    
+    return render(request, "homeempleador.html", {'tiempo':" he.tiempo",'nombre':"he.nombre", 'apellido':"he.apellido", 'zona':"he.zona",'exp':"he.exp",'anterior':"he.anterior",'descripcion':"he.descripcion"})
 
-class descpricionEmpleado(Records):
-	def __init__(self):
-		Records.__init__(self,tiempo,zona,exp,anterior,descripcion)
+
 
 def descripcionempleado(request):
-	de=descpricionEmpleado("","","","","")
-    return render(request, "descripcionempleado.html", {'tiempo': tiempo,'nombre':nombre, 'apellido':apellido, 'zona':zona,'exp':exp, 'anterior':anterior, 'descripcion':descripcion})
+    
+    return render(request, "descripcionempleado.html", {'tiempo': "de.tiempo",'nombre':"de.nombre", 'apellido':"de.apellido", 'zona':"de.zona",'exp':"de.exp", 'anterior':"de.anterior", 'descripcion':"de.descripcion"})
 
-class olvidoLaCOntraseña(Persona):
-	def __init__(self):
-		Persona.__init__(self,contraseña)
+
 
 def forgotpassword(request):
-    fp = olvidoLaCOntraseña("")
-    return render(request, "forgotpassword.html", {'password': contraseña})
+    
+    return render(request, "forgotpassword.html", {'password': "contraseña" })
 
 
 def e404(request):
     return render(request, "404.html", {'llaveALaVerga6': "ValorALaVerga6"})
 
-class homeEMpleado(Empleado):
-	def __init__(self):
-		Empleado.__init__(self,tiempo,zona,exp,anterior,descripcion)
-
 def homeempleado(request):
-	hE = homeEMpleado("","","","","")
-    return render(request, "homeempleado.html", {'tiempo': tiempo,'nombre':nombre, 'apellido':apellido, 'zona':zona,'exp':exp,'anterior':anterior,'descripcion':descripcion})
+    
+    return render(request, "homeempleado.html", {'tiempo': "tiempo",'nombre':"nombre", 'apellido':"apellido", 'zona':"zona",'exp':"exp",'anterior':"anterior",'descripcion':"descripcion"})

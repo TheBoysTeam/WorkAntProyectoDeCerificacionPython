@@ -55,7 +55,7 @@ ROOT_URLCONF = 'WorkAnt.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["/home/jurgen/workant/WorkAnt/workantlayouts"],
+        'DIRS': ["/home/camilo/djangolab/ProyectoDeCerificacion/WorkAnt/workantlayouts"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

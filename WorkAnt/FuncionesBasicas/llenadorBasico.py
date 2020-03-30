@@ -1,36 +1,48 @@
 from FuncionesBasicas.models import DireccionEmpleadores, EmailRefetenceiaEmpleados, Empleadores, Empleados, TagBusqueda, TarjetaTrabajo, TelefonosEmpleadores, TelefonosEmpleados, historialConsulta, historialCreacion
 
 
-class llenadorTablas(self):
+class llenadorTablas:
 
-    def llenadorTablasUsuario(self, pnombre, pcodigo, pfechaNac, pgenero, email, emailReferencia, ptelefonosEmpleados):
-        empleado = Empleados(nombre=pnombre, codigo=pcodigo,
-                             fechaNac=pfechaNac, genero=pgenero)
+    def llenadorTablasUsuario(self, pnombre, pcodigo, pfechaNac, pgenero, email):
+        empleado = Empleados(nombre=pnombre, codigo=pcodigo, fechaNac=pfechaNac, genero=pgenero)
         empleado.save()
+        return empleado
 
+    def emailReferencia(self,emailReferencia,empleado):
+        l=[]
         for i in emailReferencia:
-            emailsR = EmailRefetenceiaEmpleados(
-                llaveForanea=empleado, email=emailReferencia[i])
-            email.save()
+            emailsR = EmailRefetenceiaEmpleados( llaveForanea=empleado, email=emailReferencia[i])
+            emailsR.save()
+            l.append(emailsR)
+        return l
+        
 
-        for i in ptelefonosEmpleados:
-            telfE = TelefonosEmpleados(
-                llaveForanea=empleado, telf=ptelefonosEmpleados)
+    def telefonosEmpleados(self,  ptelefonosEmpleados , empleado):
+         for i in ptelefonosEmpleados:
+            telfE = TelefonosEmpleados(llaveForanea=empleado, telf=ptelefonosEmpleados)
             telfE.save()
 
-    def llenadorTablasEmpleadores(self, pnombre, pcodigo, pemail, pdireccionEmpleadores, ptelefonosEmpleadores):
-        empleador = Empleadores(nombre=pnombre, codigo=pcodigo, emial=pemail)
+    def llenadorTablasEmpleadores(self, pnombre, pcodigo, pemail, nombreEmpre, celu , emailEmpre, telf):
+        empleador = Empleadores(nombre=pnombre, codigo=pcodigo, emial=pemail, nombreEmpresa = nombreEmpre , celular=celu, emailEmpresa =emailEmpre)
         empleador.save()
+        return empleador
 
+    def direccionEmpleadores(self, pdireccionEmpleadores, empleador):
+        l = []
         for i in pdireccionEmpleadores:
-            direc = DireccionEmpleadores(
-                llaveForanea=empleador, direccion=pdireccionEmpleadores[i])
+            direc = DireccionEmpleadores( llaveForanea=empleador, direccion=pdireccionEmpleadores[i]) 
             direc.save()
+            l.append(direc)
+        return l
 
+    def telefonosEmpleadores(self,  ptelefonosEmpleadores, empleador ):
+        l = []
         for i in ptelefonosEmpleadores:
-            telfE = TelefonosEmpleadores(
-                llaveForanea=empleador, telf=ptelefonosEmpleadores[i])
+            telfE = TelefonosEmpleadores(llaveForanea=empleador, telf=ptelefonosEmpleadores[i])
             telfE.save()
+            l.append(telfE)
+        return l
+
 
     def llenadorTablasTarjetas(self, empleado_id, ptimempoDisponible,  pzona, ptagBusqueda):
         empleado = Empleados.objects.get(id=empleado_id)

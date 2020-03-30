@@ -35,17 +35,17 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Crea una cuenta como empleado!</h1>
               </div>
-              <form class="user">
+              <form class="user" action="/recordempleado.html" method="POST">
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="Username" placeholder="Usuario" required>
+                  <input type="text" class="form-control form-control-user" name="Username" placeholder="Usuario" required>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="Password" placeholder="Contraseña" required>
+                    <input type="password" class="form-control form-control-user" name="Password" placeholder="Contraseña" required>
                     <!--<p>{{nombre}} {{apellido}} {{usuario}} {{contraseña}} {{contraseña2}} {{email}} {{celular}} {{genero}} {{fecha}}</p>-->
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="RepeatPassword" placeholder="Repite la contraseña que acabas de poner" required>
+                    <input type="password" class="form-control form-control-user" name="RepeatPassword" placeholder="Repite la contraseña que acabas de poner" required>
                   </div>
                 </div>
                 <!--<div class="form-group row">
@@ -57,11 +57,11 @@
                   </div>
                 </div>-->
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="Email" placeholder="Direccion de email" required>
+                  <input type="email" class="form-control form-control-user" name="Email" placeholder="Direccion de email" required>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="tel" class="form-control form-control-user" id="Celular" placeholder="Numero de celular 777-666-4444" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                    <input type="tel" class="form-control form-control-user" name="Celular" placeholder="Numero de celular 777-666-4444" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
                   </div>
                   <div class="form-control-user">
                     <select name="Genero" required>
@@ -73,13 +73,13 @@
                   </div>  
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+                  <input type="text"  class="form-control form-control-user"  name="FechaNac" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')" required>
                   <!--<label for="Nacimiento">Fecha de nacimiento</label>
                   <input type="date" class="form-control form-control-user" id="Nacimiento" placeholder="Fecha de nacimiento">-->
                 </div>
                   <!--<input class="form-control form-control-user" id="Genero" placeholder="Genero" for="Genero">-->
                   <!--<label for="Genero" class = "form-control form-control-user">Genero </label>-->
-                <input type="submit" id="enviarEmpleado" value="Registrar" class="btn btn-primary btn-user btn-block">
+                <input type="submit" name="enviarEmpleado" value="Login" class="btn btn-primary btn-user btn-block">
                 <!--<hr>
                 <a href="index.html" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Register with Google

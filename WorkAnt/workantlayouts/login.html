@@ -40,21 +40,21 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Bienvenido!</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" action="/homeempleado.html" method="post">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="usuario" aria-describedby="emailHelp" placeholder="Introduzca su usuario..." required>
+                      <input type="email" class="form-control form-control-user" name="usuario" aria-describedby="emailHelp" placeholder="Introduzca su usuario..." required>
                       <p>{{usuario}} {{contraseña}}</p>
                     <!--</div>
                     <div class="form-group">-->
-                      <input type="password" class="form-control form-control-user" id="contraseña" placeholder="Contraseña" required>
+                      <input type="password" class="form-control form-control-user" name="contrasena" placeholder="Contraseña" required>
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <input type="checkbox" class="custom-control-input" name="customCheck">
                         <label class="custom-control-label" for="customCheck">Acuerdate de mi</label>
                       </div>
                     </div>
-                      <input type="submit" href="/registerempleado" id="enviar" value="Login" class="btn btn-primary btn-user btn-block">
+                        <input type="submit" name="enviar" value="Login" class="btn btn-primary btn-user btn-block">
                     <hr>
                     <a href="/registerempleado" class="btn btn-google btn-user btn-block">
                       <i class="fas fa-user fa-fw"></i> Buscas empleo registrate aqui
