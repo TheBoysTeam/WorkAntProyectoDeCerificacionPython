@@ -58,7 +58,7 @@ class Records:
 
 def recordsempleado(request):
 	#re=Records("")
-    return render(request, "recordsempleado.html", {'nombreEmpleado': re.nombreEmpleado})
+    return render(request, "recordsempleado.html", {'nombreEmpleado': "re.nombreEmpleado"})
 
 class homeEmpleador:
 	def __init__(self,nombre,apellido,tiempo,zona,exp,anterior,descripcion):
