@@ -598,6 +598,32 @@ pre code {
   margin-left: -0.75rem;
 }
 
+.miRow{
+  margin: 0 -5px;
+}
+
+.miRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.miColumn{
+  float: left;
+  width: auto;
+}
+
+.ordenarTodo{
+  float: left;
+  display: inline-block;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.mainMio{
+
+}
+
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
