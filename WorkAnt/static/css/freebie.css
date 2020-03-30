@@ -339,7 +339,7 @@ h1, h2, p, a, span{
 			}
 	/** CONTAINERS **/
 	.container {
-		float: left;
+		text-align: center;
 		width: 300px;
 	}
 		.block {
@@ -800,6 +800,7 @@ h1, h2, p, a, span{
 						}
 		/************************************************** MIDDLE CONTAINER **********************************/
 		.middle-container {
+			text-align: center;
 			margin: auto;
 			margin-top: 20px;
 			width: 960px;
