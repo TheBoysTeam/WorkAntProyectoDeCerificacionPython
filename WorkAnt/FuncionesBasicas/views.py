@@ -7,7 +7,7 @@ import datetime
 
 
 def login(request):
-     return render(request, "login.html", {'usuario': "p1.usuario", 'contraseña': "p1.contraseña"})
+     return render(request, "login.html", {'usuario': "", 'contraseña': ""})
 
 #------------------------------------------
 def registerempleado(request):

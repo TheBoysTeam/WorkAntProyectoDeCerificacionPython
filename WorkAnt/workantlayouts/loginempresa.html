@@ -40,7 +40,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Bienvenido! Inicie sesion si es una empresa en busca de personal capacitado</h1>
                   </div>
-                  <form class="user" action="/homeempleador" method="post">
+                  <form class="user" action="/homeempleador/" method="post">  {% csrf_token %}
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" name="usuarioDeLaEmpresa" aria-describedby="emailHelp" placeholder="Introduzca su usuario..." required>
                     </div>
