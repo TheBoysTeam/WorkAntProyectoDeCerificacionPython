@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
 from FuncionesBasicas.models import Empleados, Empleadores
-from FuncionesBasicas.llenadorBasico import llenadorTablas
+from FuncionesBasicas.llenadorBasico import llenadorTablasUsuario, llenadorTablasEmpleadores
 import datetime
 
 
@@ -16,41 +16,52 @@ def login(request):
 
 #------------------------------------------
 def registerempleado(request):
-    mensaje=""
-    bol= (request.POST.get("Username",False) and request.POST.get("Password",False)) and (request.POST.get("RepeatPassword",False) and request.POST.get("Email",False)) and (request.POST.get("NobreDeLaEmpresa",False) and request.POST.get("Celular",False)) and request.POST.get("Genero",False) 
-    if bol : 
-        if ( request.POST.get("Password",False) == request.POST.get("RepeatPassword",False) ):
-            llenador=llenadorTablas
-            fecha=datetime.datetime.strptime(request.POST["FechaNac"], "%d%m%Y")
-            llenador.llenadorTablasUsuario(request.POST["Username"], request.POST["Password"], fecha, request.POST["Genero"], request.POST["Email"])
-            
-        else:
-            mensaje="Debes repetir el password"
-    return render(request, "registerempleado.html", {'mensajePasswordInvalido':mensaje})
+
+    return render(request, "registerempleado.html", {"error":"todo ok"})
+
+#------------------------------------------------------------------------------------------------------
+
+
+
+
 
 #-----------------------------------------
 def registerempresa(request):
     mensaje=""
-    bol=request.POST.get("Username",False) and request.POST.get("Password",False) and request.POST.get("RepeatPassword",False) and request.POST.get("Email",False) and request.POST.get("NobreDeLaEmpresa",False) and request.POST.get("Celular",False) and request.POST.get("Telefono",False) and request.POST.get("EmailEmp",False)
-    if bol:
-        if ( request.POST.get("Password",False) == request.POST.get("RepeatPassword",False) ):
-            llenador=llenadorTablas
-            ob=llenador.llenadorTablasEmpleadores(request.POST["Username"], request.POST["Password"], request.POST["Email"], request.POST["NobreDeLaEmpresa"], request.POST["Celular"], request.POST["EmailEmp"])
-            llenador.llenadorTablasEmpleadores(ob,[request.POST["Telefono"]])
-        else:
-            mensaje="Debes repetir el password"
     return render(request, "registerempresa.html", {'mensajePasswordInvalido':mensaje})
-
+#--------------------------------------------------------------------------#
 def recordsempleado(request):
-    
+    if request.POST["UsernameCreate"]:
+        if request.POST["UsernameCreate"] and request.POST["Password"] and request.POST["RepeatPassword"] and request.POST["Email"] and request.POST["FechaNac"] and request.POST["Celular"] and request.POST["Genero"]:
+            if not Empleados.objects.filter(nombre=request.POST["UsernameCreate"]).exists():
+                if ( request.POST.get("Password",False) == request.POST.get("RepeatPassword",False) ):
+                    #fecha=datetime.datetime.strptime(request.POST["FechaNac"], "%d%m%Y")
+                    empleado=llenadorTablasUsuario(request.POST["UsernameCreate"],request.POST["Password"],request.POST["Genero"],request.POST["Email"])
+                else:
+                        return render(request, "registerempleado.html", {"error":"Repite el password"})
+            else:
+                return render(request, "registerempleado.html", {"error":"Ya existe ese usuario"})
+
     return render(request, "recordsempleado.html", {'tiempo': "re.tiempo", 'zona': "re.zona", 'exp': "re.exp", 'anterior': "re.anterior", 'descripcion': "re.descripcion"})
 
+#------------------------------------------------------------------------------------#
 
 def homeempleador(request):
+
+    if request.POST["UsernameCreate"]:
+        if request.POST["UsernameCreate"] and request.POST["Password"] and request.POST["RepeatPassword"] and request.POST["Email"] and request.POST["Celular"] and request.POST["Telefono"] and request.POST["EmailEmp"] :
+            if not Empleados.objects.filter(nombre=request.POST["UsernameCreate"]).exists():
+                if ( request.POST.get("Password",False) == request.POST.get("RepeatPassword",False) ):
+                    
+                    empleador=llenadorTablasEmpleadores(request.POST["UsernameCreate"],request.POST["Password"],request.POST["Email"] , request.POST["Celular"] , request.POST["EmailEmp"] )
+                else:
+                    return render(request, "registerempleado.html", {"error":"Repite el password"})
+            else:
+                return render(request, "registerempleado.html", {"error":"Ya existe ese usuario"})
     
     return render(request, "homeempleador.html", {'tiempo':" he.tiempo",'nombre':"he.nombre", 'apellido':"he.apellido", 'zona':"he.zona",'exp':"he.exp",'anterior':"he.anterior",'descripcion':"he.descripcion"})
 
-
+#--------------------------------------------------------------------------------------#
 
 def descripcionempleado(request):
     

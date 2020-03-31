@@ -1,11 +1,34 @@
 from FuncionesBasicas.models import DireccionEmpleadores, EmailRefetenceiaEmpleados, Empleadores, Empleados, TagBusqueda, TarjetaTrabajo, TelefonosEmpleadores, TelefonosEmpleados, historialConsulta, historialCreacion
 
 
+
+def llenadorTablasUsuario(pnombre, pcodigo, pgenero, pemail):
+        empleado = Empleados.objects.create(nombre=pnombre, codigo=pcodigo,genero=pgenero, email=pemail)
+        return empleado
+
+def llenadorTablasEmpleadores( pnombre, pcodigo, pemail,  celu , emailEmpre):
+        empleador = Empleadores(nombre=pnombre, codigo=pcodigo, email=pemail, celular=celu, emailEmpresa =emailEmpre)
+        empleador.save()
+        return empleador
+    
+def telefonosEmpleados(ptelefonosEmpleados , empleado):
+         for i in ptelefonosEmpleados:
+            telfE = TelefonosEmpleados(llaveForanea=empleado, telf=ptelefonosEmpleados)
+            telfE.save()
+
+
+def direccionEmpleadores(self, pdireccionEmpleadores, empleador):
+        l = []
+        for i in pdireccionEmpleadores:
+            direc = DireccionEmpleadores( llaveForanea=empleador, direccion=pdireccionEmpleadores[i]) 
+            direc.save()
+            l.append(direc)
+        return l
+
 class llenadorTablas:
 
-    def llenadorTablasUsuario(self, pnombre, pcodigo, pfechaNac, pgenero, email):
-        empleado = Empleados(nombre=pnombre, codigo=pcodigo, fechaNac=pfechaNac, genero=pgenero)
-        empleado.save()
+    def llenadorTablasUsuario(self, pnombre, pcodigo, pgenero, pemail):
+        empleado = Empleados.objects.create(nombre=pnombre, codigo=pcodigo,genero=pgenero, email=pemail)
         return empleado
 
     def emailReferencia(self,emailReferencia,empleado):
@@ -22,8 +45,8 @@ class llenadorTablas:
             telfE = TelefonosEmpleados(llaveForanea=empleado, telf=ptelefonosEmpleados)
             telfE.save()
 
-    def llenadorTablasEmpleadores(self, pnombre, pcodigo, pemail, nombreEmpre, celu , emailEmpre, telf):
-        empleador = Empleadores(nombre=pnombre, codigo=pcodigo, emial=pemail, nombreEmpresa = nombreEmpre , celular=celu, emailEmpresa =emailEmpre)
+    def llenadorTablasEmpleadores(self, pnombre, pcodigo, pemail,  celu , emailEmpre, telf):
+        empleador = Empleadores(nombre=pnombre, codigo=pcodigo, emial=pemail, celular=celu, emailEmpresa =emailEmpre)
         empleador.save()
         return empleador
 

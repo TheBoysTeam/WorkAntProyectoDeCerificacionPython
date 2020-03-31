@@ -35,9 +35,9 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Crea una cuenta para tu empresa o Como empleador!</h1>
               </div>
-              <form class="user">
+              <form class="user" action="/homeempleador/" method="POST">  {% csrf_token %}
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" name="Username" placeholder="Usuario" required>
+                  <input type="text" class="form-control form-control-user" name="UsernameCreate" placeholder="Usuario" required>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
@@ -58,9 +58,9 @@
                 <div class="form-group">
                   <input type="email" class="form-control form-control-user" name="Email" placeholder="Direccion de email" required>
                 </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" name="NobreDeLaEmpresa" placeholder="Nombre de la empresa o empleador" required>
-                </div>
+                <!--<div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="NobreDeLaEmpresa" placeholder="Nombre de la empresa o empleador" required>
+                </div>-->
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="tel" class="form-control form-control-user" name="Celular" placeholder="Numero de celular 777-666-4444" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
@@ -72,7 +72,7 @@
                 <div class="form-group">
                   <input type="email" class="form-control form-control-user" name="EmailEmp" placeholder="Direccion de email de la empresa">
                 </div>
-                <input href="/homeempleador" type="submit" name="enviarEmpleado" value="Registrar" href="/recordsempleado" class="btn btn-primary btn-user btn-block" required>
+                <input type="submit" name="enviarEmpresa" value="Login" class="btn btn-primary btn-user btn-block">
                 <!--<hr>
                 <a href="index.html" class="btn btn-google btn-user btn-block">
                   <i class="fab fa-google fa-fw"></i> Register with Google
@@ -84,7 +84,7 @@
               <hr>
               <div class="text-center">
                 <a class="small" href="/forgotpassword">Olvidaste tu contraseña?</a>
-              </div>
+              </div>name
               <div class="text-center">
                 <a class="small" href="/login">Ya tienes una cuenta? Inicia sesion!</a>
               </div>

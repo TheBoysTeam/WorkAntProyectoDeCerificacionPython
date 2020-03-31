@@ -10,7 +10,7 @@ class EmpleadosAdmin(admin.ModelAdmin):
     list_filter=("nombre",)
 
 class EmpleadoresAdmin(admin.ModelAdmin):
-    list_display=("id","nombre","codigo","email","nombreEmpresa","celular", "emailEmpresa")
+    list_display=("id","nombre","codigo","email","celular", "emailEmpresa")
     search_fields=("id","nombre","email")
     list_filter=("nombre",)
 

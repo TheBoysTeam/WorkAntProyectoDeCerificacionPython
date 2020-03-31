@@ -35,9 +35,9 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Crea una cuenta como empleado!</h1>
               </div>
-              <form class="user" action="/recordempleado.html" method="POST">
+              <form class="user" action="/recordsempleado/" method="POST"> {% csrf_token %}
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" name="Username" placeholder="Usuario" required>
+                  <input type="text" class="form-control form-control-user" name="UsernameCreate" placeholder="Usuario" required>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
@@ -90,7 +90,7 @@
               </form>
               <hr>
               <div class="text-center">
-                <a class="small" href="/forgot_password">Olvidaste tu contraseña?</a>
+                <a class="small" href="/forgot_password">Olvidaste tu contraseña?  {{error}}</a>
               </div>
               <div class="text-center">
                 <a class="small" href="/login">Ya tienes una cuenta? Inicia Sesion</a>

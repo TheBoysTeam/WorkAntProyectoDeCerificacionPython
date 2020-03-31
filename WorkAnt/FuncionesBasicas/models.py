@@ -6,9 +6,9 @@ from datetime import date
 
 
 class Empleados(models.Model):
-    nombre = models.CharField(max_length=80)
+    nombre = models.CharField(max_length=80, unique = True)
     codigo = models.CharField(max_length=120)
-    fechaNac = models.DateField()
+    fechaNac = models.DateField(blank=True, null=True)
     genero = models.CharField(max_length=60)
     email = models.EmailField()
 
@@ -33,10 +33,9 @@ class TelefonosEmpleados(models.Model):
 
 #-----------Tabla Empleadores/Empresas----------#
 class Empleadores(models.Model):
-    nombre = models.CharField(max_length=80)
+    nombre = models.CharField(max_length=80, unique = True)
     codigo = models.CharField(max_length=80)
     email = models.EmailField()
-    nombreEmpresa=models.CharField(max_length=80)
     celular=models.CharField(max_length=8)
     emailEmpresa= models.CharField(max_length=80)
 
