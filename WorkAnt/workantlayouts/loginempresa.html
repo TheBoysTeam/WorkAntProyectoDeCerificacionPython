@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Inicia Sesion aquí si estas buscando trabajo</title>
+  <title>Inicia Sesion si buscas empleados</title>
 
   <!-- Custom fonts for this template-->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -38,24 +38,14 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Bienvenido! Inicie sesion si esta buscando un empleo</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Bienvenido! Inicie sesion si es una empresa en busca de personal capacitado</h1>
                   </div>
-                  <form class="user" action="/homeempleado/" method="post"> {% csrf_token %}
-
-
-                  
+                  <form class="user" action="/homeempleador" method="post">
                     <div class="form-group">
-<<<<<<< HEAD
-                      <input type="text" class="form-control form-control-user" name="usuariologin" aria-describedby="emailHelp" placeholder="Introduzca su usuario..." required>
-                      <p>{{usuario}} {{contraseña}}</p>
-                    <!--</div>
-                    <div class="form-group">-->
-=======
-                      <input type="text" class="form-control form-control-user" name="usuario" aria-describedby="emailHelp" placeholder="Introduzca su usuario..." required>
+                      <input type="text" class="form-control form-control-user" name="usuarioDeLaEmpresa" aria-describedby="emailHelp" placeholder="Introduzca su usuario..." required>
                     </div>
                     <div class="form-group">
->>>>>>> 197a66d48174f62195d7684f251125013f164dab
-                      <input type="password" class="form-control form-control-user" name="contrasena" placeholder="Contraseña" required>
+                      <input type="password" class="form-control form-control-user" name="contrasenaDeLaEmpresa" placeholder="Contraseña" required>
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -76,7 +66,7 @@
                   <div class="text-center">
                     <a href="/forgotpassword" class="small">Olvido su contraseña?</a>
                     <hr>
-                    <a href="/loginempresa" class="small">Es una empresa inicie sesion por aquí</a>
+                    <a href="/loginempleado" class="small">Esta buscando trabajo inice sesion aqui</a>
                   </div>
                 </div>
               </div>
