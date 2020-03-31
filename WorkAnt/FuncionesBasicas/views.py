@@ -7,12 +7,7 @@ import datetime
 
 
 def login(request):
-    if request.POST.get("usuario", False) and  request.POST.get("contrasena", False):
-        if Empleados.objects.filter(nombre=request.POST["usuario"]).filter(codigo=request.POST["contrasena"]):
-            return render(request, "homeempleado.html", {'tiempo': "tiempo",'nombre':"nombre", 'apellido':"apellido", 'zona':"zona",'exp':"exp",'anterior':"anterior",'descripcion':"descripcion"})            
-        elif Empleadores.objects.filter(nombre=request.POST["usuario"]).filter(codigo=request.POST["contrasena"]):
-            return render(request, "homeempleador.html", {'tiempo':" he.tiempo",'nombre':"he.nombre", 'apellido':"he.apellido", 'zona':"he.zona",'exp':"he.exp",'anterior':"he.anterior",'descripcion':"he.descripcion"})
-    return render(request, "login.html", {'usuario': "p1.usuario", 'contraseña': "p1.contraseña"})
+     return render(request, "login.html", {'usuario': "p1.usuario", 'contraseña': "p1.contraseña"})
 
 #------------------------------------------
 def registerempleado(request):
@@ -20,10 +15,6 @@ def registerempleado(request):
     return render(request, "registerempleado.html", {"error":"todo ok"})
 
 #------------------------------------------------------------------------------------------------------
-
-
-
-
 
 #-----------------------------------------
 def registerempresa(request):
@@ -47,7 +38,15 @@ def recordsempleado(request):
 #------------------------------------------------------------------------------------#
 
 def homeempleador(request):
-
+    if request.POST["usuariologin"]:
+        if request.POST["usuariologin"] and request.POST["contrasena"]:
+            if Empleadores.objects.filter(nombre=request.POST["usuariologin"]).filter(codigo=request.POST["contrasena"]).exists():
+                empleador=Empleadores.objects.filter(nombre=request.POST["usuariologin"]).filter(codigo=request.POST["contrasena"])
+            else:
+                return render(request, "login.html", {'error': "No existe el usuario o su codigo"})
+        else:
+            return render(request, "login.html", {'error': "No lleno todos los espacios necesarios"})
+#------------------------------------------------------------------------------------------------#
     if request.POST["UsernameCreate"]:
         if request.POST["UsernameCreate"] and request.POST["Password"] and request.POST["RepeatPassword"] and request.POST["Email"] and request.POST["Celular"] and request.POST["Telefono"] and request.POST["EmailEmp"] :
             if not Empleados.objects.filter(nombre=request.POST["UsernameCreate"]).exists():
@@ -55,9 +54,9 @@ def homeempleador(request):
                     
                     empleador=llenadorTablasEmpleadores(request.POST["UsernameCreate"],request.POST["Password"],request.POST["Email"] , request.POST["Celular"] , request.POST["EmailEmp"] )
                 else:
-                    return render(request, "registerempleado.html", {"error":"Repite el password"})
+                    return render(request, "registerempresa.html", {'mensajePasswordInvalido':"lol"})
             else:
-                return render(request, "registerempleado.html", {"error":"Ya existe ese usuario"})
+                return render(request, "registerempresa.html", {'mensajePasswordInvalido':"lel"})
     
     return render(request, "homeempleador.html", {'tiempo':" he.tiempo",'nombre':"he.nombre", 'apellido':"he.apellido", 'zona':"he.zona",'exp':"he.exp",'anterior':"he.anterior",'descripcion':"he.descripcion"})
 
@@ -78,5 +77,14 @@ def e404(request):
     return render(request, "404.html", {'llaveALaVerga6': "ValorALaVerga6"})
 
 def homeempleado(request):
+
+    if request.POST["usuariologin"]:
+        if request.POST["usuariologin"] and request.POST["contrasena"]:
+            if Empleados.objects.filter(nombre=request.POST["usuariologin"]).filter(codigo=request.POST["contrasena"]).exists():
+                empleados=Empleados.objects.filter(nombre=request.POST["usuariologin"]).filter(codigo=request.POST["contrasena"])
+            else:
+                return render(request, "login.html", {'error': "No existe el usuario o su codigo"})
+        else:
+            return render(request, "login.html", {'error': "No lleno todos los espacios necesarios"})
     
     return render(request, "homeempleado.html", {'tiempo': "tiempo",'nombre':"nombre", 'apellido':"apellido", 'zona':"zona",'exp':"exp",'anterior':"anterior",'descripcion':"descripcion"})
