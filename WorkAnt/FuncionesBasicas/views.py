@@ -76,6 +76,9 @@ def forgotpassword(request):
 def e404(request):
     return render(request, "404.html", {'llaveALaVerga6': "ValorALaVerga6"})
 
+def loginEm(request):
+    return render(request, "loginempresa.html", {"mm":"mm"})
+
 def homeempleado(request):
 
     if request.POST["usuariologin"]:

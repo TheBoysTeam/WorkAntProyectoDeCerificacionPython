@@ -31,4 +31,5 @@ urlpatterns = [
     path('homeempleado/', views.homeempleado),
     path('forgotpassword/', views.forgotpassword),
     path('e404/', views.e404),
+    path("loginEm",views.loginEm)
 ]
