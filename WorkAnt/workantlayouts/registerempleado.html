@@ -18,6 +18,7 @@
 
   <!-- Custom styles for this template-->
   <link href="{%static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+  <link href="{%static 'css/gijgo.min.css' %}" rel="stylesheet" >
 
 </head>
 
@@ -65,17 +66,20 @@
                   </div>
                   <div class="form-control-user">
                     <select name="Genero" required>
-                      <option value="" disabled selected hidden>Genero</option>
+                      <option value="" class="form-control form-control-user" disabled selected hidden>Genero</option>
                       <option value="masculino" class="form-control form-control-user">Masculino</option>
                       <option value="femenino" class="form-control form-control-user">Femenino</option>
                       <option value="otro" class="form-control form-control-user">No quiero decirlo</option>
                     </select>
                   </div>  
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                   <input type="text"  class="form-control form-control-user"  name="FechaNac" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')" required>
                   <!--<label for="Nacimiento">Fecha de nacimiento</label>
                   <input type="date" class="form-control form-control-user" id="Nacimiento" placeholder="Fecha de nacimiento">-->
+                <!--</div>-->
+                <div class="form-group">
+                  <input id="datepicker" class="form-control form-control-user" name="FechaNac"/>
                 </div>
                   <!--<input class="form-control form-control-user" id="Genero" placeholder="Genero" for="Genero">-->
                   <!--<label for="Genero" class = "form-control form-control-user">Genero </label>-->
@@ -90,7 +94,7 @@
               </form>
               <hr>
               <div class="text-center">
-                <a class="small" href="/forgot_password">Olvidaste tu contraseña?  {{error}}</a>
+                <a class="small" href="/forgotpassword">Olvidaste tu contraseña?  {{error}}</a>
               </div>
               <div class="text-center">
                 <a class="small" href="/login">Ya tienes una cuenta? Inicia Sesion</a>
@@ -106,6 +110,10 @@
   <!-- Bootstrap core JavaScript-->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/gijgo.min.js' %}"></script>
+  <script type="text/javascript">
+    $('#datepicker').datepicker({ uiLibrary: 'bootstrap4', iconsLibrary: 'fontawesome' });
+  </script>
 
   <!-- Core plugin JavaScript-->
   <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
