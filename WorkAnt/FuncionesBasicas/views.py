@@ -38,14 +38,14 @@ def recordsempleado(request):
 #------------------------------------------------------------------------------------#
 
 def homeempleador(request):
-    if request.POST["usuariologin"]:
-        if request.POST["usuariologin"] and request.POST["contrasena"]:
-            if Empleadores.objects.filter(nombre=request.POST["usuariologin"]).filter(codigo=request.POST["contrasena"]).exists():
-                empleador=Empleadores.objects.filter(nombre=request.POST["usuariologin"]).filter(codigo=request.POST["contrasena"])
+    if request.POST["usuarioDeLaEmpresa"]:
+        if request.POST["usuarioDeLaEmpresa"] and request.POST["contrasena"]:
+            if Empleadores.objects.filter(nombre=request.POST["usuarioDeLaEmpresa"]).filter(codigo=request.POST["contrasena"]).exists():
+                empleador=Empleadores.objects.filter(nombre=request.POST["usuarioDeLaEmpresa"]).filter(codigo=request.POST["contrasena"])
             else:
-                return render(request, "login.html", {'error': "No existe el usuario o su codigo"})
+                return render(request, "loginempresa.html", {'error': "No existe el usuario o su codigo"})
         else:
-            return render(request, "login.html", {'error': "No lleno todos los espacios necesarios"})
+            return render(request, "loginempresa.html", {'error': "No lleno todos los espacios necesarios"})
 #------------------------------------------------------------------------------------------------#
     if request.POST["UsernameCreate"]:
         if request.POST["UsernameCreate"] and request.POST["Password"] and request.POST["RepeatPassword"] and request.POST["Email"] and request.POST["Celular"] and request.POST["Telefono"] and request.POST["EmailEmp"] :
